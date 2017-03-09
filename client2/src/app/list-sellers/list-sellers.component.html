@@ -1,0 +1,28 @@
+<h1>
+  {{title}}
+</h1>
+<!--<template ngbModalContainer></template>
+<button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>-->
+ 
+<button (click)="onAddNewSeller()">Bæta við seljanda</button>
+<template ngbModalContainer></template>
+
+<div *ngFor="let s of sellers">
+   <a [routerLink]="['/seller-details', s]">{{s.name}}</a>
+<div>
+
+<!--
+<div *ngIf="seller">
+  <h2> {{seller.name}} </h2>
+  <img src= "{{seller.imagePath}}" alt="Image of the seller" />
+</div>
+-->
+
+
+
+<div class= "container">
+    <div class= "row">
+      <div class="col-sm-12 col-md-3 col-lg-2">
+      </div>
+    </div>
+</div>

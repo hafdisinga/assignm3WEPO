@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SellersService, Seller } from './sellers.service';
+import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +9,20 @@ import { SellersService, Seller } from './sellers.service';
 })
 
 export class AppComponent implements OnInit {
-  title = 'app works!';
+  //title = 'app works!';
 
-  private sellers: Seller[];
-  private seller: Seller;
+  /*private sellers: Seller[];
+  private seller: Seller;*/
 
   constructor(private service : SellersService) { }
 
   ngOnInit() {
-   /* this.service.getSellers().subscribe(result => {
-      this.sellers = result;
-  });*/
+    console.log("erum inni appComponent");
+   // this.service.getSellers().subscribe(result => {
+     // this.sellers = result;
+  };
 
-    var successHandler = (result) => {
+   /* var successHandler = (result) => {
       this.seller = result;
     }
 
@@ -30,7 +32,7 @@ export class AppComponent implements OnInit {
     }
 
     this.service.getSellerById(2).subscribe(successHandler, errorHandler);
-  }
+  }*/
 }
 
 

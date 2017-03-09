@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx';
 
 export interface Seller {
-  id: number;
+  id: string;
   name: string;
   category: string;
   imagePath: string;
@@ -23,7 +23,7 @@ export class SellersService {
     });
   }
 
-  getSellerById(id: number) : Observable<Seller> {
+  getSellerById(id: string) : Observable<Seller> {
     
     return this.http.get("http://localhost:5000/api/sellers/" + id).map(response =>{
       return <Seller> response.json();
