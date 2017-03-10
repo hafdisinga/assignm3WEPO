@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http'; //ATH
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx';
 
@@ -29,5 +29,9 @@ export class SellersService {
       return <Seller> response.json();
     });
   }
+
+   addSeller(sellerInfo: any) : Observable<Seller> {
+    return this.http.post("http://localhost:5000/api/sellers", sellerInfo).map(response => response.json()) 
+   }
 
 }

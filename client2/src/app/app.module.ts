@@ -41,14 +41,14 @@ import { ProductCardComponent } from './product-card/product-card.component';
       path: "product-card",
       component: ProductCardComponent
     }, {
-      path: "products-dlg",
-      component: ProductsDlgComponent
-    }, {
+      //path: "products-dlg",
+      //component: ProductsDlgComponent
+    //}, {
       path: "seller-details",
       component: SellerDetailsComponent
-    }, {
-      path: "seller-dlg",
-      component: SellerDlgComponent
+    //}, {
+     // path: "seller-dlg",
+      //component: SellerDlgComponent
     }])
   ],
   providers: [SellersService],

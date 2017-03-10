@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SellersService, Seller } from '../sellers.service';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,6 +17,13 @@ export class SellerDlgComponent implements OnInit {
   ngOnInit() {
     console.log("erum inni seller-dlg");
   }
+  
+  onConfirm(){
+    this.modal.close(this.seller);
+  }
 
-
+  onCancel(){
+    this.modal.dismiss();
+  }
+ 
 }

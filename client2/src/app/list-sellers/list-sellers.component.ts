@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
 import { SellersService, Seller } from '../sellers.service';
 import { Router } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +13,7 @@ export class ListSellersComponent implements OnInit {
   title = 'Welcome to our online store';
 
   private sellers: Seller[];
-  private seller: Seller;
+  //private seller: Seller;
 
   constructor(private service : SellersService, private router: Router, private modal: NgbModal) { }
 
@@ -23,19 +23,32 @@ export class ListSellersComponent implements OnInit {
       this.sellers = result;
     });
 
-    var successHandler = (result) => {
+  /*  var successHandler = (result) => {
       this.seller = result;
-    };
+    };*/
 
-    var errorHandler = (err) => {
+   /* var errorHandler = (err) => {
       console.log("something failed");
       //birta t.d. alert herna fyrir notandann
-    };
+    };*/
 
-    this.service.getSellerById('2').subscribe(successHandler, errorHandler);
+   // this.service.getSellerById('2').subscribe(successHandler, errorHandler);
   }
+  
   onAddNewSeller(){
     const modals = this.modal.open(SellerDlgComponent);
+
+    modals.result.then(addNewSeller => {
+        this.service.addSeller(addNewSeller).subscribe(result => {
+
+        });
+      });
+
+      modals.componentInstance.seller = {
+        name: "",
+        category: "",
+        imagePath: ""
+      }
+    }
   }
 
-}
