@@ -12,6 +12,7 @@
 <div id="seljendur">
   <h3>Seljendur:</h3>
   <div *ngFor="let s of sellers">
+    <button class="btn btn-info" (click)="onEditSeller(s, s.id)"><span class="glyphicon glyphicon-edit" > </span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Edit_font_awesome.svg/512px-Edit_font_awesome.svg.png" style="width: 30px; height: 30px;"></button>
     <a [routerLink]="['/seller-details', s]">{{s.name}}</a>
   <div>
 </div>

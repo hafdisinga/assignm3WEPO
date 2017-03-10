@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from "@angular/router";
+import { ToastrModule } from 'ngx-toastr'; 
 
 import { AppComponent } from './app.component';
 import { SellersService } from './sellers.service';
@@ -30,6 +31,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     FormsModule,
     HttpModule,
     NgbModule.forRoot(),
+    ToastrModule.forRoot({preventDuplicates: true}),
     RouterModule.forRoot([{
       path: "",
       redirectTo: "list-sellers",

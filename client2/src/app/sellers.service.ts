@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http'; //ATH
+import { Http, Response, Headers, RequestOptions } from '@angular/http'; //ATH
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx';
 
@@ -58,5 +58,22 @@ export class SellersService {
    addProduct(productInfo: any, id: string) : Observable<Seller> {
     return this.http.post("http://localhost:5000/api/sellers/" + id + "/products", productInfo).map(response => response.json()) 
    }
+
+   updateSeller(sellerInfo: Seller, id : string) : Observable<Seller> {
+
+    /*let bodyString = JSON.stringify(sellerInfo); // Stringify payload
+    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    let options = new RequestOptions({ headers: headers }); // Create a request option
+
+        return this.http.put('http://localhost:5000/api/sellers/' + id , sellerInfo, options) // ...using put request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors*/
+
+  console.log("inni i update seller");
+  console.log(sellerInfo.id);
+  console.log(sellerInfo);
+    return this.http.put('http://localhost:5000/api/sellers/' + (sellerInfo.id), sellerInfo).map(response => response.json());
+
+  }
 
 }

@@ -3,6 +3,7 @@ import { SellersService, Seller, Product } from '../sellers.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsDlgComponent } from '../products-dlg/products-dlg.component';
+import { ToastrService, ToastrConfig } from 'ngx-toastr';
 
 @Component({
   selector: 'app-seller-details',
@@ -16,7 +17,10 @@ export class SellerDetailsComponent implements OnInit {
   sellerID: string;
   product: Product;
 
-  constructor(private service: SellersService, private router: Router, private route: ActivatedRoute, private modal: NgbModal) { }
+  constructor(private service: SellersService, private router: Router, private route: ActivatedRoute, private modal: NgbModal, private toastrService: ToastrService, private toastrConfig: ToastrConfig) { 
+    toastrConfig.timeOut = 2500;
+    toastrConfig.maxOpened = 0;
+  }
 
   ngOnInit() {
     this.sellerID = this.route.snapshot.params['id'];
@@ -36,7 +40,7 @@ export class SellerDetailsComponent implements OnInit {
 
     modals.result.then(addNewProduct => {
         this.service.addProduct(addNewProduct, this.sellerID).subscribe(result => {
-
+          this.toastrService.success("Ný vara hefur verið búin til");
         });
       });
 
