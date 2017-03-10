@@ -69,10 +69,21 @@ export class SellersService {
                          .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors*/
 
-  console.log("inni i update seller");
-  console.log(sellerInfo.id);
-  console.log(sellerInfo);
     return this.http.put('http://localhost:5000/api/sellers/' + (sellerInfo.id), sellerInfo).map(response => response.json());
+
+  }
+
+  updateProduct(sellerID: Seller, productID: Product ) : Observable<Seller> {
+
+    /*let bodyString = JSON.stringify(sellerInfo); // Stringify payload
+    let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+    let options = new RequestOptions({ headers: headers }); // Create a request option
+
+        return this.http.put('http://localhost:5000/api/sellers/' + id , sellerInfo, options) // ...using put request
+                         .map((res:Response) => res.json()) // ...and calling .json() on the response to return data
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors*/
+
+    return this.http.put('http://localhost:5000/api/sellers/' + (sellerID.id) + "/products/" + (productID.id), sellerID).map(response => response.json());
 
   }
 
