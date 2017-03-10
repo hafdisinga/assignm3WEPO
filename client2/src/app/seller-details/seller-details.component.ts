@@ -35,9 +35,10 @@ export class SellerDetailsComponent implements OnInit {
       this.products = result;
     });
 
-    this.service.getProducts(this.sellerID).subscribe (result => {
+    this.service.getProducts(this.sellerID).subscribe(result => {
+      result.splice(10);
       this.topProducts = result;
-    });
+    }); 
   }
 
    openProducts(evt, cityName) {
@@ -56,8 +57,6 @@ export class SellerDetailsComponent implements OnInit {
     }
     document.getElementById(cityName).style.display = "block";
 }
-
-// Get the element with id="defaultOpen" and click on it
 
   onAddNewProduct(){
     const modals = this.modal.open(ProductsDlgComponent);
