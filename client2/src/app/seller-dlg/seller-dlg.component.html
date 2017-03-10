@@ -1,7 +1,5 @@
 
 <div *ngIf="seller">
-
-
   <div class="modal-header">
      <h4 class="modal-title">Bæta við nýjum seljanda</h4>
      <button type="button" class="btn btn-danger" aria-label="Close" (click)="onCancel()">
@@ -11,20 +9,42 @@
   <div class="modal-body">
       <div class="input-group">
          <label id="inputgroup"> Nafn  </label>
-         <input type="text" class="form-control" placeholder="Nafn á seljanda" aria-describedby="basic-addon1" [(ngModel)]="seller.name">
+         <input type="text" class="form-control" placeholder="Nafn á seljanda" aria-describedby="basic-addon1" 
+         required 
+         [(ngModel)]="seller.name"
+         #name="ngModel">
+         <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn nafn!
+        </div>
       </div>
       <div class="input-group">
           <label id="inputgroup"> Flokkur   </label>
-          <input type="text" class="form-control" placeholder="Flokkur" aria-describedby="basic-addon2" [(ngModel)]="seller.category">
+          <input type="text" class="form-control" placeholder="Flokkur" aria-describedby="basic-addon2" 
+          required
+          [(ngModel)]="seller.category"
+          #type="ngModel">
+           <div [hidden]="type.valid || type.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn flokk!
+        </div>
       </div>
      <div class="input-group">
            <label id="inputgroup"> Mynd   </label>
-          <input type="text" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon3" [(ngModel)]="seller.imagePath">
+          <input type="text" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon3" 
+          required
+          [(ngModel)]="seller.imagePath"
+          #path="ngModel">
+          <div [hidden]="path.valid || path.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn slóð af mynd!
+        </div>
      </div>
   </div>
   <div class="modal-footer">
       <button type="button" class="btn btn-info" (click)="onConfirm()">Confirm</button>
      <button type="button" class="btn btn-info" (click)="onCancel()">Cancel</button>
   </div>
+  
 </div>
 
