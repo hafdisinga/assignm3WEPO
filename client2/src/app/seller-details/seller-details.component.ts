@@ -66,6 +66,8 @@ export class SellerDetailsComponent implements OnInit {
         this.service.addProduct(addNewProduct, this.sellerID).subscribe(result => {
           this.toastrService.success("Ný vara hefur verið búin til");
         });
+      }).catch(err => {
+           this.toastrService.warning("Ekki tókst að bæta við vöru");
       });
 
       modals.componentInstance.product = {
