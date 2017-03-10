@@ -1,13 +1,20 @@
 <h1>
   {{title}}
+  <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/27673-200.png" style="width:50px;height:50px;">
 </h1>
  
-<button (click)="onAddNewSeller()">Bæta við seljanda</button>
-<template ngbModalContainer></template>
+ <div id="seljendur">
+  <button class="btn btn-info"(click)="onAddNewSeller()">Bæta við seljanda</button>
+  <!--<button (click)="onAddNewSeller(); form-control.reset()">Bæta við seljanda</button> ATH!!! -->
+  <template ngbModalContainer></template>
+</div>
 
-<div *ngFor="let s of sellers">
-   <a [routerLink]="['/seller-details', s]">{{s.name}}</a>
-<div>
+<div id="seljendur">
+  <h3>Seljendur:</h3>
+  <div *ngFor="let s of sellers">
+    <a [routerLink]="['/seller-details', s]">{{s.name}}</a>
+  <div>
+</div>
 
 <!--
 <div *ngIf="seller">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SellersService, Seller } from '../sellers.service';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-seller-dlg',

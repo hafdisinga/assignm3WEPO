@@ -1,7 +1,11 @@
 <div *ngIf="seller">
-  <h2> {{seller.name}} </h2>
-  {{seller.category}}
-  <img src= "{{seller.imagePath}}" alt="Image of the seller" />
+  <h2> {{seller.name}} 
+    <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/27673-200.png" style="width:50px;height:50px;">
+  </h2>
+    <h3>Flokkur:  {{seller.category}}</h3>
+    <div id="myndir">
+      <img src= "{{seller.imagePath}}" alt="Image of the seller" style="width:400px;"/>
+    </div>
 </div>
 
 <button (click)="onAddNewProduct()">Bæta við seljanda</button>
