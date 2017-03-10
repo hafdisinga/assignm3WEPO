@@ -10,10 +10,10 @@ import { SellerDlgComponent } from '../seller-dlg/seller-dlg.component';
   styleUrls: ['./list-sellers.component.css']
 })
 export class ListSellersComponent implements OnInit {
-  title = 'Vertu velkomin/n í netverslun okkar';
+  title = 'Welcome to our online store';
 
   private sellers: Seller[];
-  //private seller: Seller;
+  private seller: Seller;
 
   constructor(private service : SellersService, private router: Router, private modal: NgbModal) { }
 
@@ -45,9 +45,9 @@ export class ListSellersComponent implements OnInit {
       });
 
       modals.componentInstance.seller = {
-        //name: "",
-        //category: "",
-        //imagePath: ""
+        name: "",
+        category: "",
+        imagePath: ""
       }
     }
   }
