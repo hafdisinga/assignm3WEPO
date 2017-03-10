@@ -52,12 +52,7 @@ export class ListSellersComponent implements OnInit {
            this.toastrService.warning("Ekki tókst að bæta við seljanda");
       });
       
-
-      modals.componentInstance.seller = {
-        name: "",
-        category: "",
-        imagePath: ""
-      }
+      modals.componentInstance.seller = {}
     }
 
     onEditSeller(sellerInfo: Seller) {
@@ -65,13 +60,7 @@ export class ListSellersComponent implements OnInit {
       const modals = this.modal.open(SellerDlgComponent);
 
       modals.componentInstance.seller = sellerInfo;
-/*
-      modals.componentInstance.seller = {
-        name: "hehe",
-        category: "",
-        imagePath: ""
-      }
-*/
+
       modals.result.then(editSeller => {
         this.service.updateSeller(editSeller, sellerInfo.id).subscribe(result => {
              this.toastrService.success("Upplýsingar um seljanda hafa verið breyttar");
