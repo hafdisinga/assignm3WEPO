@@ -64,6 +64,7 @@ export class SellerDetailsComponent implements OnInit {
     modals.result.then(addNewProduct => {
         this.service.addProduct(addNewProduct, this.sellerID).subscribe(result => {
           this.toastrService.success("Ný vara hefur verið búin til");
+          location.reload();
         });
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að bæta við vöru");
@@ -90,6 +91,7 @@ export class SellerDetailsComponent implements OnInit {
       modals.result.then(editSeller => {
         this.service.updateSeller(editSeller, productInfo.id).subscribe(result => {
              this.toastrService.success("Upplýsingar um vöru hafa verið breyttar");
+             location.reload();
           });
         }).catch(err => {
            this.toastrService.warning("Ekki tókst að breyta upplýsingum um vöru");

@@ -45,8 +45,8 @@ export class ListSellersComponent implements OnInit {
 
     modals.result.then(addNewSeller => {
         this.service.addSeller(addNewSeller).subscribe(result => {
-          this.toastrService.success("Nýr seljandi hefur verið búin til");
-          //this.toastrService.info('<span style="color: green">Message in green</span>', null, {enableHtml: true});
+          this.toastrService.success("Nýr seljandi hefur verið búinn til");
+          location.reload();
         });
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að bæta við seljanda");
@@ -75,6 +75,7 @@ export class ListSellersComponent implements OnInit {
       modals.result.then(editSeller => {
         this.service.updateSeller(editSeller, sellerInfo.id).subscribe(result => {
              this.toastrService.success("Upplýsingar um seljanda hafa verið breyttar");
+             location.reload();
           });
         }).catch(err => {
            this.toastrService.warning("Ekki tókst að breyta upplýsingum um seljanda");
