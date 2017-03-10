@@ -85,7 +85,7 @@
 <div id="topProducts" class="tabcontent">
   <h3>Topp tíu vörur frá seljanda: </h3>
     <div *ngIf="products">
-    <div *ngFor="let product of products">
+    <div *ngFor="let product of topProducts">
       <div id="forlykkja">
       <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
       <h5>Vara: {{product.name}} </h5>

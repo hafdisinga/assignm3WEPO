@@ -35,9 +35,10 @@ export class SellerDetailsComponent implements OnInit {
       this.products = result;
     });
 
-    this.service.getProducts(this.sellerID).subscribe (result => {
+    this.service.getProducts(this.sellerID).subscribe(result => {
+      result.splice(10);
       this.topProducts = result;
-    });
+    }); 
   }
 
    openProducts(evt, cityName) {
