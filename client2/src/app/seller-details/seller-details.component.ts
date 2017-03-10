@@ -58,8 +58,6 @@ export class SellerDetailsComponent implements OnInit {
     document.getElementById(cityName).style.display = "block";
 }
 
-// Get the element with id="defaultOpen" and click on it
-
   onAddNewProduct(){
     const modals = this.modal.open(ProductsDlgComponent);
 

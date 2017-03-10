@@ -13,52 +13,6 @@
   <button class="btn btn-info" (click)="onAddNewProduct()">Bæta við nýrri vöru</button>
   <template ngbModalContainer></template>
 </div>
-<!--
-<div class="tab">
-  <button class="tablinks" onclick="openProducts(event, 'allProducts')" id="defaultOpen">Allar vörur</button>
-  <button class="tablinks" onclick="openProducts(event, 'topProducts')">Topp 10</button>
-</div>
-
-<div id="allProducts" class="tabcontent">
-  <h3>Allar vörur</h3>
-  <div id="vorur">
-    
-  <div *ngIf="products">
-    <div *ngFor="let product of products">
-      <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
-      <h5>Vara: {{product.name}} </h5>
-      <h5>Verð: {{product.price}} ISL kr. </h5>
-      <h5>Fjöldi: {{product.quantityInStock}} </h5>
-    </div>
-  </div>
-</div>
-</div>
-
-<div id="topProducts" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div>
-
-<script>
-  function openProducts(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-  }
-
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-  </script>
-
--->
 
 <div class="tab">
   <button class="tablinks" (click)="openProducts(event, 'allProducts')" id="defaultOpen">Allar vörur</button>
@@ -98,67 +52,6 @@
 </div>
 
 
-
-
-<!--
-
-<button (click)="onAddNewProduct()">Bæta við</button>
-<template ngbModalContainer></template>
-
-  ÞESSI KÓÐI VIRKAR!! <button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>
- 
-<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
-     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Static modal</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        This is static modal, backdrop click will not close it.
-        Click <b>&times;</b> to close modal.
-      </div>
-    </div>
-  </div>
-</div>-->
-
-
-
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <button (click)="onAddNewProduct()">Bæta við</button>
-      <button class="btn btn-primary btn-sm" data-target="#loginModal" data-toggle="modal">Create</button>
-      <div class="modal" id="loginModal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Create new product</h4>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="inputUserName">UserName</label>
-                  <input class="form-control" placeholder="Login UserName" type="text" id="inputUserName">
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary">Login</button>
-              <button class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
 
 
 
