@@ -53,6 +53,6 @@ import { ProductCardComponent } from './product-card/product-card.component';
   ],
   providers: [SellersService],
   bootstrap: [AppComponent],
-  entryComponents: [SellerDlgComponent]
+  entryComponents: [SellerDlgComponent, ProductsDlgComponent]
 })
 export class AppModule { }

@@ -4,6 +4,13 @@
   <img src= "{{seller.imagePath}}" alt="Image of the seller" />
 </div>
 
+<button (click)="onAddNewProduct()">Bæta við seljanda</button>
+<template ngbModalContainer></template>
+
+
+<ul *ngIf="products">
+    <li *ngFor="let product of products">{{product.name}}</li>
+</ul>
 
 <!--
 

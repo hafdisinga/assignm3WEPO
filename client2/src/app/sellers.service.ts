@@ -10,8 +10,23 @@ export interface Seller {
   imagePath: string;
 }
 
+export interface Product {
+  
+  id: string,
+  product: {
+    name: string,
+	  price: string,
+    quantitySold: string,
+	  quantityInStock: string,
+  	imagePath: string
+  }
+}
+
+
 @Injectable()
 export class SellersService {
+
+  id: string;
 
   constructor(private http: Http) {
     
@@ -20,6 +35,12 @@ export class SellersService {
   getSellers() : Observable<Seller[]> {
     return this.http.get("http://localhost:5000/api/sellers").map(response => {
       return <Seller[]> response.json();
+    });
+  }
+
+  getProducts(id: string) : Observable<Product[]> {
+    return this.http.get("http://localhost:5000/api/sellers/" + id + "/products").map(response => {
+      return <Product[]> response.json();
     });
   }
 
@@ -32,6 +53,10 @@ export class SellersService {
 
    addSeller(sellerInfo: any) : Observable<Seller> {
     return this.http.post("http://localhost:5000/api/sellers", sellerInfo).map(response => response.json()) 
+   }
+
+   addProduct(productInfo: any, id: string) : Observable<Seller> {
+    return this.http.post("http://localhost:5000/api/sellers/" + id + "/products", productInfo).map(response => response.json()) 
    }
 
 }

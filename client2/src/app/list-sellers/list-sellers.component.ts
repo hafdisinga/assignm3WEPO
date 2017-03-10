@@ -45,9 +45,9 @@ export class ListSellersComponent implements OnInit {
       });
 
       modals.componentInstance.seller = {
-        name: "",
-        category: "",
-        imagePath: ""
+        //name: "",
+        //category: "",
+        //imagePath: ""
       }
     }
   }

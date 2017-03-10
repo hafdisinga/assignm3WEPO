@@ -1,20 +1,10 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { SellersService, Seller } from '../sellers.service';
+import { SellersService, Seller, Product } from '../sellers.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { SellerDetailsComponent } from '../seller-details/seller-details.component';
 import { ModalDirective } from 'ng2-bootstrap/modal';
 
-
-export interface Product {
-  
-  id: string,
-	productName: string,
-	price: string,
-  quantitySold: string,
-	quantityInStock: string,
-	imagePath: string
-}
 
 @Component({
   selector: 'app-products-dlg',
@@ -23,7 +13,6 @@ export interface Product {
 })
 export class ProductsDlgComponent implements OnInit {
 
-
   product: Product;
   seller: Seller;
 
@@ -31,6 +20,14 @@ export class ProductsDlgComponent implements OnInit {
 
   ngOnInit() {
     console.log("erum inni products-dlg");
+  }
+
+  onConfirm(){
+    this.modal.close(this.product);
+  }
+
+  onCancel(){
+    this.modal.dismiss();
   }
 
 }
