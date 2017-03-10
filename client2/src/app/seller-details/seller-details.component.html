@@ -1,3 +1,4 @@
+
 <div *ngIf="seller">
   <h2> {{seller.name}} 
     <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/27673-200.png" style="width:50px;height:50px;">
@@ -12,8 +13,16 @@
   <button class="btn btn-info" (click)="onAddNewProduct()">Bæta við nýrri vöru</button>
   <template ngbModalContainer></template>
 </div>
+<!--
+<div class="tab">
+  <button class="tablinks" onclick="openProducts(event, 'allProducts')" id="defaultOpen">Allar vörur</button>
+  <button class="tablinks" onclick="openProducts(event, 'topProducts')">Topp 10</button>
+</div>
 
-<div id="vorur">
+<div id="allProducts" class="tabcontent">
+  <h3>Allar vörur</h3>
+  <div id="vorur">
+    
   <div *ngIf="products">
     <div *ngFor="let product of products">
       <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
@@ -23,6 +32,72 @@
     </div>
   </div>
 </div>
+</div>
+
+<div id="topProducts" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<script>
+  function openProducts(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
+
+-->
+
+<div class="tab">
+  <button class="tablinks" (click)="openProducts(event, 'allProducts')" id="defaultOpen">Allar vörur</button>
+  <button class="tablinks" (click)="openProducts(event, 'topProducts')">Topp tíu vörur</button>
+</div>
+
+<div id="allProducts" class="tabcontent">
+  <h3>Allar vörur frá seljanda: </h3>
+
+  <div id="vorur">
+  <div *ngIf="products">
+    <div *ngFor="let product of products">
+      <div id="forlykkja">
+      <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
+      <h5>Vara: {{product.name}} </h5>
+      <h5>Verð: {{product.price}} ISL kr. </h5>
+      <h5>Fjöldi: {{product.quantityInStock}} </h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="topProducts" class="tabcontent">
+  <h3>Topp tíu vörur frá seljanda: </h3>
+    <div *ngIf="products">
+    <div *ngFor="let product of products">
+      <div id="forlykkja">
+      <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
+      <h5>Vara: {{product.name}} </h5>
+      <h5>Verð: {{product.price}} ISL kr. </h5>
+      <h5>Fjöldi: {{product.quantityInStock}} </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <!--
 
