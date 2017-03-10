@@ -10,7 +10,7 @@ import { SellerDlgComponent } from '../seller-dlg/seller-dlg.component';
   styleUrls: ['./list-sellers.component.css']
 })
 export class ListSellersComponent implements OnInit {
-  title = 'Welcome to our online store';
+  title = 'Velkomin/n í netverslun okkar';
 
   private sellers: Seller[];
   private seller: Seller;
