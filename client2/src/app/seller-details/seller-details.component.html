@@ -8,13 +8,16 @@
     </div>
 </div>
 
-<button (click)="onAddNewProduct()">Bæta við seljanda</button>
-<template ngbModalContainer></template>
+<div id="vorur">
+  <button class="btn btn-info" (click)="onAddNewProduct()">Bæta við vöru</button>
+  <template ngbModalContainer></template>
+</div>
 
-
-<ul *ngIf="products">
-    <li *ngFor="let product of products">{{product.name}}</li>
-</ul>
+<div id="vorur">
+  <ul *ngIf="products">
+      <li *ngFor="let product of products">{{product.name}}</li>
+  </ul>
+</div>
 
 <!--
 
