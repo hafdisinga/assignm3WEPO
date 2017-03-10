@@ -44,7 +44,15 @@
      </div>
   </div>
   <div class="modal-footer">
-      <button type="button" class="btn btn-info" (click)="onConfirm()">Confirm</button>
+    <div *ngIf="name.valid">
+      <div *ngIf=type.valid>
+        <div *ngIf="path.valid">
+          <form (ngSubmit)="onConfirm()" #takki="ngForm">
+           <button type="submit" class="btn btn-info" [disabled]="!takki.form.valid" (click)="onConfirm()">Confirm</button>
+          </form>
+        </div>
+      </div>
+    </div>
      <button type="button" class="btn btn-info" (click)="onCancel()">Cancel</button>
   </div>
   

@@ -1,7 +1,7 @@
 
 <div *ngIf="product">
 
-  <div class="modal-header">
+ <!--<div class="modal-header">
      <h4 class="modal-title">Bæta við nýrri vöru</h4>
      <button type="button" class="btn btn-danger" aria-label="Close" (click)="onCancel()">
          <span aria-hidden="true">&times;</span>
@@ -27,6 +27,75 @@
   </div>
   <div class="modal-footer">
       <button type="button" class="btn btn-info" (click)="onConfirm()">Confirm</button>
+     <button type="button" class="btn btn-info" (click)="onCancel()">Cancel</button>
+  </div>
+</div>-->
+
+<div class="modal-header">
+     <h4 class="modal-title">Bæta við nýrri vöru</h4>
+     <button type="button" class="btn btn-danger" aria-label="Close" (click)="onCancel()">
+         <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <div class="input-group">
+         <label id="inputgroup"> Nafn  </label>
+         <input type="text" class="form-control" placeholder="Nafn á vöru" aria-describedby="basic-addon1" [(ngModel)]="product.name"
+         required
+          [(ngModel)]="product.name"
+          #name="ngModel">
+          <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn nafn!
+        </div>
+      </div>
+      <div class="input-group">
+         <label id="inputgroup"> Verð </label>
+         <input type="text" class="form-control" placeholder="Verð" aria-describedby="basic-addon1" [(ngModel)]="product.price"
+         required
+          [(ngModel)]="product.price"
+          #price="ngModel">
+          <div [hidden]="price.valid || price.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn verð!
+        </div>
+      </div>
+      <div class="input-group">
+         <label id="inputgroup"> Fjöldi </label>
+         <input type="text" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
+         required
+          [(ngModel)]="product.quantityInStock"
+          #many="ngModel">
+          <div [hidden]="many.valid || many.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn fjölda!
+        </div>
+      </div>
+      <div class="input-group">
+         <label id="inputgroup"> Mynd  </label>
+         <input type="text" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon1" [(ngModel)]="product.imagePath"
+         required
+          [(ngModel)]="product.imagePath"
+          #path="ngModel">
+          <div [hidden]="path.valid || path.pristine"
+             class="alert alert-danger">
+          Þú verður að setja inn slóð af mynd!
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+
+    <div *ngIf="name.valid">
+      <div *ngIf="price.valid">
+        <div *ngIf="path.valid">
+            <div *ngIf="many.valid">
+                <form (ngSubmit)="onConfirm()" #takki="ngForm">
+                 <button type="submit" class="btn btn-info" [disabled]="!takki.form.valid" (click)="onConfirm()">Confirm</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
      <button type="button" class="btn btn-info" (click)="onCancel()">Cancel</button>
   </div>
 </div>

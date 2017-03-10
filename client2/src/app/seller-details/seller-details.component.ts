@@ -75,6 +75,28 @@ export class SellerDetailsComponent implements OnInit {
         //imagePath: ""
       }
     }
+    onEditProduct(productInfo: Product) {
+
+      const modals = this.modal.open(ProductsDlgComponent);
+
+      modals.componentInstance.product = productInfo;
+/*
+      modals.componentInstance.seller = {
+        name: "hehe",
+        category: "",
+        imagePath: ""
+      }
+*/
+      modals.result.then(editSeller => {
+        this.service.updateSeller(editSeller, productInfo.id).subscribe(result => {
+             this.toastrService.success("Upplýsingar um vöru hafa verið breyttar");
+          });
+        }).catch(err => {
+           this.toastrService.warning("Ekki tókst að breyta upplýsingum um vöru");
+      });
+      
+  }
+
 
     
   
