@@ -8,13 +8,13 @@
     </div>
 </div>
 
-<button (click)="onAddNewProduct()">Bæta við seljanda</button>
+<button (click)="onAddNewProduct()">Bæta við nýrri vöru</button>
 <template ngbModalContainer></template>
 
 
 <div *ngIf="products">
     <div *ngFor="let product of products">
-      <img src= "{{product.imagePath}}" alt="Image of the product" style="width:200px;"/>
+      <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
       <h5>Vara: {{product.name}} </h5>
       <h5>Verð: {{product.price}} ISL kr. </h5>
       <h5>Fjöldi: {{product.quantityInStock}} </h5>
