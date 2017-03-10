@@ -14,9 +14,14 @@
 </div>
 
 <div id="vorur">
-  <ul *ngIf="products">
-      <li *ngFor="let product of products">{{product.name}}</li>
-  </ul>
+  <div *ngIf="products">
+      <div *ngFor="let product of products">
+        <img src= "{{product.imagePath}}" alt="Image of the product" style="width:200px;"/>
+        <h5>Vara: {{product.name}} </h5>
+        <h5>Verð: {{product.price}} ISL kr. </h5>
+        <h5>Fjöldi: {{product.quantityInStock}} </h5>
+        </div>
+</div>
 </div>
 
 <!--
