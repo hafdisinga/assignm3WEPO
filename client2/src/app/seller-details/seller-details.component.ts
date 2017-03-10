@@ -12,6 +12,7 @@ import { ProductsDlgComponent } from '../products-dlg/products-dlg.component';
 export class SellerDetailsComponent implements OnInit {
 
   products: Product[];
+  topProducts: Product[];
   seller: Seller;
   sellerID: string;
   product: Product;
@@ -29,7 +30,30 @@ export class SellerDetailsComponent implements OnInit {
     this.service.getProducts(this.sellerID).subscribe (result => {
       this.products = result;
     });
+
+    this.service.getProducts(this.sellerID).subscribe (result => {
+      this.topProducts = result;
+    });
   }
+
+   openProducts(evt, cityName) {
+
+    document.getElementById("defaultOpen").click();
+     
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+}
+
+// Get the element with id="defaultOpen" and click on it
 
   onAddNewProduct(){
     const modals = this.modal.open(ProductsDlgComponent);
@@ -46,6 +70,8 @@ export class SellerDetailsComponent implements OnInit {
         //imagePath: ""
       }
     }
+
+    
   
 
 }
