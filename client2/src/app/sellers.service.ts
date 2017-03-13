@@ -15,13 +15,9 @@ export interface Product {
   id: number,
   quantitySold: string,
   price: string,
-  product: {
-    name: string,
-	  //price: string,
-    //quantitySold: string,
-	  quantityInStock: string,
-  	imagePath: string
-  }
+  quantityInStock: string,
+  imagePath: string
+
 }
 
 

@@ -1,3 +1,8 @@
-<p>
-  product-card works!
-</p>
+
+<div id="forlykkja">
+  <button class="btn btn-info" (click)="onBtnEdit()"><span class="glyphicon glyphicon-edit" > </span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Edit_font_awesome.svg/512px-Edit_font_awesome.svg.png" style="width: 30px; height: 30px;"></button>
+  <img src= "{{product.imagePath}}" alt="Image of the product" style="width:100px;"/>
+  <h5>Vara: {{product.name}} </h5>
+  <h5>Verð: {{product.price}} ISL kr. </h5>
+  <h5>Fjöldi: {{product.quantityInStock}} </h5>
+</div>
