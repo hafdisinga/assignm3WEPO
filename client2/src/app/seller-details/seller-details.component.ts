@@ -15,7 +15,7 @@ export class SellerDetailsComponent implements OnInit {
   products: Product[];
   topProducts: Product[];
   seller: Seller;
-  sellerID: string;
+  sellerID: number;
   product: Product;
 
   constructor(private service: SellersService, private router: Router, private route: ActivatedRoute, private modal: NgbModal, private toastrService: ToastrService, private toastrConfig: ToastrConfig) { 
@@ -64,14 +64,17 @@ export class SellerDetailsComponent implements OnInit {
     modals.result.then(addNewProduct => {
         this.service.addProduct(addNewProduct, this.sellerID).subscribe(result => {
           this.toastrService.success("Ný vara hefur verið búin til");
-          location.reload();
+          this.service.getProducts(this.sellerID).subscribe(result => {
+            console.log(this.sellerID);
+            this.products = result;
+          });
         });
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að bæta við vöru");
       });
 
       modals.componentInstance.product = {}
-      
+
     }
     onEditProduct(productInfo: Product) {
 
@@ -79,10 +82,9 @@ export class SellerDetailsComponent implements OnInit {
 
       modals.componentInstance.product = productInfo;
 
-      modals.result.then(editSeller => {
-        this.service.updateSeller(editSeller, productInfo.id).subscribe(result => {
-             this.toastrService.success("Upplýsingar um vöru hafa verið breyttar");
-             location.reload();
+      modals.result.then(editProduct => {
+        this.service.editProduct(productInfo, this.sellerID).subscribe(result => {
+             this.toastrService.success("Upplýsingum um vöru hefur verið breytt");
           });
         }).catch(err => {
            this.toastrService.warning("Ekki tókst að breyta upplýsingum um vöru");
@@ -90,8 +92,5 @@ export class SellerDetailsComponent implements OnInit {
       
   }
 
-
-    
-  
 
 }

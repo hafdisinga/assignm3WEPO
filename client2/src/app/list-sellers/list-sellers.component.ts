@@ -37,7 +37,6 @@ export class ListSellersComponent implements OnInit {
       //birta t.d. alert herna fyrir notandann
     };*/
 
-   // this.service.getSellerById('2').subscribe(successHandler, errorHandler);
   }
   
   onAddNewSeller(){
@@ -46,7 +45,10 @@ export class ListSellersComponent implements OnInit {
     modals.result.then(addNewSeller => {
         this.service.addSeller(addNewSeller).subscribe(result => {
           this.toastrService.success("Nýr seljandi hefur verið búinn til");
-          location.reload();
+          this.service.getSellers().subscribe(result => {
+            this.sellers = result;
+          });
+         
         });
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að bæta við seljanda");
@@ -62,9 +64,8 @@ export class ListSellersComponent implements OnInit {
       modals.componentInstance.seller = sellerInfo;
 
       modals.result.then(editSeller => {
-        this.service.updateSeller(editSeller, sellerInfo.id).subscribe(result => {
-             this.toastrService.success("Upplýsingar um seljanda hafa verið breyttar");
-             location.reload();
+        this.service.editSeller(editSeller).subscribe(result => {
+             this.toastrService.success("Upplýsingum um seljanda hefur verið breytt");
           });
         }).catch(err => {
            this.toastrService.warning("Ekki tókst að breyta upplýsingum um seljanda");
