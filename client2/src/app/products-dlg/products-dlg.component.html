@@ -31,7 +31,7 @@
       </div>
       <div class="input-group">
          <label id="inputgroup"> Fjöldi </label>
-         <input type="number" min="0" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
+         <input type="number" min="1" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
          required
           [(ngModel)]="product.quantityInStock"
           #many="ngModel">
@@ -42,7 +42,7 @@
       </div>
       <div class="input-group">
          <label id="inputgroup"> Mynd  </label>
-         <input type="text" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon1" [(ngModel)]="product.imagePath"
+         <input type="url" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon1" [(ngModel)]="product.imagePath"
          required
           [(ngModel)]="product.imagePath"
           #path="ngModel">

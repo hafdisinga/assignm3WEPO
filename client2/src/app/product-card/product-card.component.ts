@@ -13,6 +13,7 @@ import { ToastrService, ToastrConfig } from 'ngx-toastr';
 
 export class ProductCardComponent implements OnInit {
 
+
   @Input()
   product: Product;
 
