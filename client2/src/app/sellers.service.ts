@@ -21,8 +21,8 @@ export interface Product {
 @Injectable()
 export class SellersService {
 
-  id: number;
-  seller : Seller;
+   id: number;
+   seller : Seller;
 
   constructor(private http: Http) {
     
