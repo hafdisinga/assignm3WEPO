@@ -13,13 +13,11 @@ export interface Seller {
 export interface Product {
   
   id: number,
-  product: {
-    name: string,
-	  price: string,
-    quantitySold: string,
-	  quantityInStock: string,
-  	imagePath: string
-  }
+  quantitySold: string,
+  price: string,
+  quantityInStock: string,
+  imagePath: string
+
 }
 
 

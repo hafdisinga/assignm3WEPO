@@ -9,7 +9,6 @@ import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class AppComponent implements OnInit {
-  //title = 'Netverslun';
 
   /*private sellers: Seller[];
   private seller: Seller;*/

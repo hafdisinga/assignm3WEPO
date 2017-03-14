@@ -35,15 +35,31 @@ export class SellerDetailsComponent implements OnInit {
       this.products = result;
     });
 
-    this.service.getProducts(this.sellerID).subscribe(result => {
-      result.splice(10);
-      this.topProducts = result;
-    }); 
+   this.service.getProducts(this.sellerID).subscribe(result => {
+      this.products = result;
+      this.topProducts = this.products.slice(0);
+      this.topProducts.sort((a, b) => {
+        if(a.price === b.price){
+          return 0;
+        }
+        if(a.price < b.price){
+          return 1;
+        }
+        if(a.price > b.price){
+          return -1;
+        }
+
+      });
+
+      this.topProducts = this.topProducts.slice(0,10);
+      
+    });
   }
 
    openProducts(evt, cityName) {
 
-    document.getElementById("defaultOpen").click();
+   // document.getElementById("defaultOpen").click();
+  
      
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -56,6 +72,7 @@ export class SellerDetailsComponent implements OnInit {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(cityName).style.display = "block";
+   // evt.currentTarget.className += " active ";
 }
 
   onAddNewProduct(){
@@ -78,18 +95,9 @@ export class SellerDetailsComponent implements OnInit {
     }
     onEditProduct(productInfo: Product) {
 
-      const modals = this.modal.open(ProductsDlgComponent);
-
-      modals.componentInstance.product = productInfo;
-
-      modals.result.then(editProduct => {
-        this.service.editProduct(productInfo, this.sellerID).subscribe(result => {
-             this.toastrService.success("Upplýsingum um vöru hefur verið breytt");
-          });
-        }).catch(err => {
-           this.toastrService.warning("Ekki tókst að breyta upplýsingum um vöru");
-      });
-      
+      this.service.editProduct(productInfo, this.sellerID).subscribe(result => {
+        this.toastrService.success("Upplýsingum um vöru hefur verið breytt");
+      })
   }
 
 
