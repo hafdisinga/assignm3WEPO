@@ -37,8 +37,5 @@ export class ProductCardComponent implements OnInit {
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að breyta upplýsingum um vöru");
       });
-
-    
   }
-
 }
