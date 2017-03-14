@@ -14,7 +14,7 @@ export interface Product {
   
   id: number,
   quantitySold: string,
-  price: string,
+  price: number,
   quantityInStock: string,
   imagePath: string
 

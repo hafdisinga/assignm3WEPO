@@ -19,7 +19,7 @@ export class ProductsDlgComponent implements OnInit {
   constructor(private service: SellersService, private router: Router, private route: ActivatedRoute, private modal: NgbActiveModal) { }
 
   ngOnInit() {
-    console.log("erum inni products-dlg");
+    
   }
 
   onConfirm(){

@@ -23,7 +23,6 @@ export class ListSellersComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("erum inni list-sellers");
     this.service.getSellers().subscribe(result => {
       this.sellers = result;
     });

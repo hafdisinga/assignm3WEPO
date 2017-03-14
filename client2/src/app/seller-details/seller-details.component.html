@@ -14,6 +14,10 @@
   <template ngbModalContainer></template>
 </div>
 
+<div id="vorur">
+  <button class="btn btn-info" (click)="leaveSeller()">Tilbaka í alla seljendur</button>
+</div>
+
 <div class="tab">
   <button id="allarvorur" class="tablinks" (click)="openProducts(event, 'allProducts')" class='selected' style="display: block">Allar vörur</button>
   <button class="tablinks" (click)="openProducts(event, 'topProducts')">Topp tíu vörur</button>

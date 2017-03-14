@@ -20,7 +20,7 @@
       </div>
       <div class="input-group">
          <label id="inputgroup"> Verð </label>
-         <input type="text" class="form-control" placeholder="Verð" aria-describedby="basic-addon1" [(ngModel)]="product.price"
+         <input type="number" min="0" class="form-control" placeholder="Verð" aria-describedby="basic-addon1" [(ngModel)]="product.price"
          required
           [(ngModel)]="product.price"
           #price="ngModel">
@@ -31,7 +31,7 @@
       </div>
       <div class="input-group">
          <label id="inputgroup"> Fjöldi </label>
-         <input type="text" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
+         <input type="number" min="0" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
          required
           [(ngModel)]="product.quantityInStock"
           #many="ngModel">
@@ -56,8 +56,8 @@
 
     <div *ngIf="name.valid">
       <div *ngIf="price.valid">
-        <div *ngIf="path.valid">
-            <div *ngIf="many.valid">
+          <div *ngIf="path.valid">
+            <div *ngIf="many.valid">  
                 <form (ngSubmit)="onConfirm()" #takki="ngForm">
                  <button type="submit" class="btn btn-info" [disabled]="!takki.form.valid" (click)="onConfirm()">Confirm</button>
                 </form>
