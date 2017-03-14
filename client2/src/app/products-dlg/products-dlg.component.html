@@ -31,7 +31,7 @@
       </div>
       <div class="input-group">
          <label id="inputgroup"> Fjöldi </label>
-         <input type="number" min="1" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
+         <input type="number" min="1" pattern="^[1-9]\d*$" class="form-control" placeholder="Fjöldi" aria-describedby="basic-addon1" [(ngModel)]="product.quantityInStock"
          required
           [(ngModel)]="product.quantityInStock"
           #many="ngModel">
