@@ -30,6 +30,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     NgbModule.forRoot(),
     ToastrModule.forRoot({preventDuplicates: true}),
     RouterModule.forRoot([{
