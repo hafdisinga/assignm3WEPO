@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'; 
 import { SellersService, Seller } from '../sellers.service';
-import { Router, RouterLink } from "@angular/router";
+import { Router, RouterLink, RouterModule } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SellerDlgComponent } from '../seller-dlg/seller-dlg.component';
 import { ToastrService, ToastrConfig } from 'ngx-toastr';
