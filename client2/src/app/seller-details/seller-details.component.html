@@ -37,11 +37,14 @@
 
 <div id="topProducts" class="tabcontent">
   <h3>Topp tíu vörur frá seljanda: </h3>
+
+  <div id="vorur">
     <div *ngIf="products">
     <div *ngFor="let p of topProducts">
       <app-product-card [product]="p" (productUpdated)="onEditProduct($event)"></app-product-card>
     </div>
   </div>
+</div>
 </div>
 
 
