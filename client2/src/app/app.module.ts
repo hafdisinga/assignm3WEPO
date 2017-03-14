@@ -35,7 +35,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     RouterModule.forRoot([{
       path: "",
       redirectTo: "list-sellers",
-      pathMatch: "full"
+      pathMatch: "full",
     }, {
       path: "list-sellers",
       component: ListSellersComponent

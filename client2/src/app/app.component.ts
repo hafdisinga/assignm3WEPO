@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SellersService, Seller } from './sellers.service';
+import { SellersService, Seller, Product } from './sellers.service';
 import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,7 +9,7 @@ import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class AppComponent implements OnInit {
-  //title = 'app works!';
+  //title = 'Netverslun';
 
   /*private sellers: Seller[];
   private seller: Seller;*/
