@@ -12,7 +12,6 @@ import { SellerDetailsComponent } from '../seller-details/seller-details.compone
 export class ProductsDlgComponent implements OnInit {
 
   product: Product;
-  seller: Seller;
 
   constructor(private service: SellersService, private modal: NgbActiveModal) { }
 

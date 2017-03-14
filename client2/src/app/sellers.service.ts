@@ -21,12 +21,7 @@ export interface Product {
 @Injectable()
 export class SellersService {
 
-   id: number;
-   seller : Seller;
-
-  constructor(private http: Http) {
-    
-  }
+  constructor(private http: Http) {}
 
   getSellers() : Observable<Seller[]> {
     return this.http.get("http://localhost:5000/api/sellers").map(response => {
