@@ -18,7 +18,7 @@ export class SellerDetailsComponent implements OnInit {
   sellerID: number;
   product: Product;
 
-  constructor(private service: SellersService, private router: Router, private route: ActivatedRoute, private modal: NgbModal, private toastrService: ToastrService, private toastrConfig: ToastrConfig) { 
+  constructor(private service: SellersService, private route: ActivatedRoute, private router: Router, private modal: NgbModal, private toastrService: ToastrService, private toastrConfig: ToastrConfig) { 
     toastrConfig.timeOut = 2500;
     toastrConfig.maxOpened = 0;
   }
@@ -80,32 +80,30 @@ export class SellerDetailsComponent implements OnInit {
             this.products = result;
           });
           this.service.getProducts(this.sellerID).subscribe(result => {
-            this.topProducts = result;
+           this.products = result;
+           this.topProducts = this.products.slice(0);
 
-            this.topProducts = this.products.slice(0);
-            this.topProducts.sort((a, b) => {
-            if(a.price === b.price){
-             return 0;
-           }
-            if(a.price < b.price){
+           this.topProducts.sort((a, b) => {
+             if(a.price === b.price){
+              return 0;
+             }
+             if(a.price < b.price){
               return 1;
-            }
-            if(a.price > b.price){
+             }
+             if(a.price > b.price){
               return -1;
-            }
+             }
 
-        });
+           });
 
-          this.topProducts = this.topProducts.slice(0,10);
-
-          });
+            this.topProducts = this.topProducts.slice(0,10);
+         });
         });
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að bæta við vöru");
       });
 
       modals.componentInstance.product = {}
-
   }
 
   onEditProduct(productInfo: Product) {
@@ -118,6 +116,4 @@ export class SellerDetailsComponent implements OnInit {
   leaveSeller(){
     this.router.navigate(['/list-sellers']);
   }
-
-
 }

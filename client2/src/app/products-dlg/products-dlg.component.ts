@@ -1,9 +1,7 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SellersService, Seller, Product } from '../sellers.service';
-import { Router, ActivatedRoute } from "@angular/router";
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SellerDetailsComponent } from '../seller-details/seller-details.component';
-import { ModalDirective } from 'ng2-bootstrap/modal';
 
 
 @Component({
@@ -16,10 +14,10 @@ export class ProductsDlgComponent implements OnInit {
   product: Product;
   seller: Seller;
 
-  constructor(private service: SellersService, private router: Router, private route: ActivatedRoute, private modal: NgbActiveModal) { }
+  constructor(private service: SellersService, private modal: NgbActiveModal) { }
 
   ngOnInit() {
-    
+
   }
 
   onConfirm(){

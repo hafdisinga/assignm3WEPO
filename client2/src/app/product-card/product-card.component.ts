@@ -28,7 +28,6 @@ export class ProductCardComponent implements OnInit {
 
   onBtnEdit(){
     const modals = this.modal.open(ProductsDlgComponent);
-    console.log("inni product-card");
 
     modals.componentInstance.product = this.product;
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http'; //ATH
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/rx';
 
@@ -11,13 +11,11 @@ export interface Seller {
 }
 
 export interface Product {
-  
-  id: number,
-  quantitySold: string,
-  price: number,
-  quantityInStock: string,
-  imagePath: string
-
+  id: number;
+  quantitySold: string;
+  price: number;
+  quantityInStock: string;
+  imagePath: string;
 }
 
 @Injectable()
