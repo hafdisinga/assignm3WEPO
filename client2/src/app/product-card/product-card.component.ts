@@ -13,6 +13,7 @@ import { ToastrService, ToastrConfig } from 'ngx-toastr';
 
 export class ProductCardComponent implements OnInit {
 
+
   @Input()
   product: Product;
 
@@ -37,8 +38,5 @@ export class ProductCardComponent implements OnInit {
       }).catch(err => {
            this.toastrService.warning("Ekki tókst að breyta upplýsingum um vöru");
       });
-
-    
   }
-
 }

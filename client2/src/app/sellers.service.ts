@@ -20,7 +20,6 @@ export interface Product {
 
 }
 
-
 @Injectable()
 export class SellersService {
 
@@ -45,14 +44,12 @@ export class SellersService {
   }
 
   getSellerById(id: number) : Observable<Seller> {
-    
     return this.http.get("http://localhost:5000/api/sellers/" + id).map(response =>{
       return <Seller> response.json();
     });
   }
 
    addSeller(sellerInfo: any) : Observable<Seller> {
-  
     return this.http.post("http://localhost:5000/api/sellers", sellerInfo).map(response => response.json()) 
    }
 
@@ -61,14 +58,13 @@ export class SellersService {
    }
 
    editSeller(sellerInfo: Seller) : Observable<Seller> {
-
     return this.http.put('http://localhost:5000/api/sellers/' + String(sellerInfo.id), sellerInfo).map(response => response.json());
 
-  }
+   }
 
-  editProduct(productInfo: Product, id: number) : Observable<Seller> {
+   editProduct(productInfo: Product, id: number) : Observable<Seller> {
     const productID = productInfo.id;
     return this.http.put('http://localhost:5000/api/sellers/' + String(id) + '/products/' + String(productID), productInfo).map(response => response.json());
-  }
+   }
 
 }

@@ -28,7 +28,6 @@ export class SellerDetailsComponent implements OnInit {
 
     this.service.getSellerById(this.sellerID).subscribe( success => {
       this.seller = success;
-      console.log(this.seller.name);
     });
 
     this.service.getProducts(this.sellerID).subscribe (result => {
@@ -52,7 +51,6 @@ export class SellerDetailsComponent implements OnInit {
       });
 
       this.topProducts = this.topProducts.slice(0,10);
-      
     });
   }
 
@@ -83,6 +81,23 @@ export class SellerDetailsComponent implements OnInit {
           });
           this.service.getProducts(this.sellerID).subscribe(result => {
             this.topProducts = result;
+
+            this.topProducts = this.products.slice(0);
+            this.topProducts.sort((a, b) => {
+            if(a.price === b.price){
+             return 0;
+           }
+            if(a.price < b.price){
+              return 1;
+            }
+            if(a.price > b.price){
+              return -1;
+            }
+
+        });
+
+          this.topProducts = this.topProducts.slice(0,10);
+
           });
         });
       }).catch(err => {
@@ -91,13 +106,15 @@ export class SellerDetailsComponent implements OnInit {
 
       modals.componentInstance.product = {}
 
-    }
-    onEditProduct(productInfo: Product) {
+  }
+
+  onEditProduct(productInfo: Product) {
 
       this.service.editProduct(productInfo, this.sellerID).subscribe(result => {
         this.toastrService.success("Upplýsingum um vöru hefur verið breytt");
       })
   }
+
   leaveSeller(){
     this.router.navigate(['/list-sellers']);
   }

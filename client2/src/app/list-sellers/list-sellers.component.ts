@@ -26,16 +26,6 @@ export class ListSellersComponent implements OnInit {
     this.service.getSellers().subscribe(result => {
       this.sellers = result;
     });
-
-  /*  var successHandler = (result) => {
-      this.seller = result;
-    };*/
-
-   /* var errorHandler = (err) => {
-      console.log("something failed");
-      //birta t.d. alert herna fyrir notandann
-    };*/
-
   }
   
   onAddNewSeller(){

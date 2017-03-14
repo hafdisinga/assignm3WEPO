@@ -10,28 +10,12 @@ import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class AppComponent implements OnInit {
 
-  /*private sellers: Seller[];
-  private seller: Seller;*/
-
   constructor(private service : SellersService) { }
 
   ngOnInit() {
-    console.log("erum inni appComponent");
-   // this.service.getSellers().subscribe(result => {
-     // this.sellers = result;
+    
   };
 
-   /* var successHandler = (result) => {
-      this.seller = result;
-    }
-
-    var errorHandler = (err) => {
-      console.log("something failed");
-      //birta t.d. alert herna fyrir notandann
-    }
-
-    this.service.getSellerById(2).subscribe(successHandler, errorHandler);
-  }*/
 }
 
 

@@ -15,7 +15,7 @@ export class SellerDlgComponent implements OnInit {
   constructor(private modal: NgbActiveModal) { }
 
   ngOnInit() {
-    console.log("erum inni seller-dlg");
+
   }
   
   onConfirm(){
