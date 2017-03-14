@@ -42,7 +42,7 @@
       </div>
       <div class="input-group">
          <label id="inputgroup"> Mynd  </label>
-         <input type="text" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon1" [(ngModel)]="product.imagePath"
+         <input type="text"  pattern="(http)?s?:?(\/\/[^']*\.(?:png|jpg|jpeg|gif|png|svg))" class="form-control" placeholder="Slóð á mynd" aria-describedby="basic-addon1" [(ngModel)]="product.imagePath"
          required
           [(ngModel)]="product.imagePath"
           #path="ngModel">
