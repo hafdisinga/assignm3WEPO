@@ -79,8 +79,10 @@ export class SellerDetailsComponent implements OnInit {
         this.service.addProduct(addNewProduct, this.sellerID).subscribe(result => {
           this.toastrService.success("Ný vara hefur verið búin til");
           this.service.getProducts(this.sellerID).subscribe(result => {
-            console.log(this.sellerID);
             this.products = result;
+          });
+          this.service.getProducts(this.sellerID).subscribe(result => {
+            this.topProducts = result;
           });
         });
       }).catch(err => {
